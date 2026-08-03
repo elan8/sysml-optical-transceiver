@@ -61,6 +61,10 @@ package Architecture {
     part modulator : MachZehnderModulator;
     part outputCoupler : OutputFibreCoupler;
 
+    bind electricalDataInput = transmitElectronics.txDataInput;
+    bind opticalCarrierInput = modulator.carrierInput;
+    bind outputCoupler.fibreOutput = modulatedOpticalOutput;
+
     connect transmitElectronics.modulatorDriveOutput to modulator.driveInput;
     connect modulator.modulatedOutput to outputCoupler.picInput;
 
@@ -75,21 +79,17 @@ package Architecture {
     @EngineeringConcern { concern = architecture; }
     @AbstractionLevel { level = system; }
 
-    part transmitter : OpticalTransmitter {
-      bind electricalDataInput = transmitElectronics.txDataInput;
-      bind opticalCarrierInput = modulator.carrierInput;
-      bind outputCoupler.fibreOutput = modulatedOpticalOutput;
-    }
+    part transmitter : OpticalTransmitter;
+
+    bind electricalTxDataInput = transmitter.electricalDataInput;
+    bind opticalCarrierInput = transmitter.opticalCarrierInput;
+    bind transmitter.modulatedOpticalOutput = opticalTxOutput;
   }
 
   part transceiverSystem : TransmitterFirstOpticalTransceiver {
     attribute :>> acceptsExternalOpticalCarrier = true;
     attribute :>> acceptsElectricalTransmitData = true;
     attribute :>> emitsModulatedOpticalSignal = true;
-
-    bind electricalTxDataInput = transmitter.electricalDataInput;
-    bind opticalCarrierInput = transmitter.opticalCarrierInput;
-    bind transmitter.modulatedOpticalOutput = opticalTxOutput;
   }
 
   satisfy transmitConversionSpecification by transceiverSystem;
