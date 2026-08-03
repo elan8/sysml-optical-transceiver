@@ -42,15 +42,11 @@ package Behavior {
     action coupleOutput : CoupleModulatedOpticalOutput;
 
     flow electricalData to encodeData.rawData;
-    flow encodeData.encodedData to generateDrive.encodedData;
-    flow generateDrive.driveSignal to modulateCarrier.driveSignal;
+    succession flow encodeData.encodedData to generateDrive.encodedData;
+    succession flow generateDrive.driveSignal to modulateCarrier.driveSignal;
     flow opticalCarrier to modulateCarrier.opticalCarrier;
-    flow modulateCarrier.modulatedSignal to coupleOutput.picSignal;
+    succession flow modulateCarrier.modulatedSignal to coupleOutput.picSignal;
     flow coupleOutput.fibreSignal to opticalData;
-
-    first encodeData then generateDrive;
-    first generateDrive then modulateCarrier;
-    first modulateCarrier then coupleOutput;
 
     doc /*
       Nominal transmitter scenario. Data encoding and drive generation are
