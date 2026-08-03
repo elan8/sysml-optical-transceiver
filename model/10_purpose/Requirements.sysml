@@ -135,3 +135,35 @@ package BoundaryRequirements {
     @Refinement;
   }
 }
+
+package TransmitRequirements {
+  doc /* EI-002 behavioral contract for the transmitter-first vertical slice. */
+
+  private import TransceiverContext::*;
+  private import StakeholdersAndNeeds::*;
+  private import Elan8::Method::Core::*;
+  private import Elan8::Method::Metadata::*;
+
+  requirement transmitConversionSpecification {
+    subject transceiver : OpticalTransceiverModule;
+    @RequirementRole { role = system; }
+    @RequirementIdentity { requirementId = "SYS-TX-001"; }
+
+    require constraint {
+      transceiver.acceptsElectricalTransmitData == true and
+      transceiver.acceptsExternalOpticalCarrier == true and
+      transceiver.emitsModulatedOpticalSignal == true
+    }
+
+    doc /*
+      Convert accepted electrical transmit data into modulation of the accepted
+      continuous-wave optical carrier and emit the resulting optical signal at
+      the transmit boundary.
+    */
+  }
+
+  dependency transmitNeedRefinement
+    from transmitConversionSpecification to transferDigitalData {
+    @Refinement;
+  }
+}

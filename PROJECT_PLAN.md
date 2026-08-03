@@ -22,8 +22,8 @@ Three result streams support this demonstration:
 
 | Increment | Engineering question | Result |
 | --- | --- | --- |
-| EI-001 | What crosses the system boundary? | Actors, needs, typed external interfaces, context view |
-| EI-002 | How is electrical data converted to modulated optical output? | Transmit behavior and architecture |
+| EI-001 ✓ | What crosses the system boundary? | Actors, needs, typed external interfaces, context view |
+| EI-002 (current) | How is electrical data converted to modulated optical output? | Transmit behavior and architecture |
 | EI-003 | Is sufficient optical power available at the fibre output? | Executable power-budget golden thread |
 | EI-004 | Can the selected transmitter PIC project to technology-neutral PIC IR? | L0 semantic connectivity |
 | EI-005 | Does an L1 generated layout preserve intended connectivity? | GDS/OASIS, netlist, verdict, provenance |
@@ -55,4 +55,4 @@ The model records the standard `medium` profile with notes describing the intend
 
 ## Current acceptance gate
 
-EI-001 is complete when the boundary is unambiguous, the CW laser is external, all external exchanges cross typed ports, the context view answers the engineering question, Spec42 validation is green, and the increment is understandable without oral explanation.
+EI-002 is complete when the nominal electrical-to-optical behavior is explicit, responsibilities are allocated to logical components, all peer connections use compatible typed ports, boundary delegation is explicit, both focused views answer the engineering question, verification intent has a reviewable pass criterion, Spec42 validation is green, and quantitative power-budget claims remain deferred to EI-003.

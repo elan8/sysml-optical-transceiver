@@ -6,13 +6,13 @@ The initial scope is deliberately transmitter-first. The project begins with the
 
 ## Current increment
 
-**EI-001 — Define the transceiver boundary**
+**EI-002 — Define the transmitter behavior and logical architecture**
 
 Engineering question:
 
-> What does the optical transceiver exchange with its environment, and where is its system boundary?
+> How is electrical data converted to modulated optical output?
 
-The model currently contains only the black-box module, external actors, typed boundary ports, initial needs and interface requirements, verification intent, and a context view. Internal transmitter and receiver components are intentionally deferred.
+The model now adds one transmitter-first vertical slice to the EI-001 boundary: NRZ/OOK encoding, electrical drive generation, Mach–Zehnder carrier modulation, and output fibre coupling. The selected architecture allocates these responsibilities to transmit electronics, a modulator, and a replaceable output coupler. Quantitative optical loss and margin remain deliberately deferred to EI-003.
 
 ## Repository map
 
@@ -20,7 +20,7 @@ The model currently contains only the black-box module, external actors, typed b
 | --- | --- |
 | `model/00_project/` | Elan8 Method tailoring |
 | `model/10_purpose/` | Stakeholders, needs, requirements, and operational context |
-| `model/20_behavior/` | Scenarios and behavior, starting in EI-002 |
+| `model/20_behavior/` | Transmit scenario and later receive/control behavior |
 | `model/30_architecture/` | Selected system usage and later architecture |
 | `model/40_analysis/` | Executable analyses, starting in EI-003 |
 | `model/50_verification/` | Verification intent and evidence links |
@@ -31,13 +31,13 @@ The model currently contains only the black-box module, external actors, typed b
 
 ## Validation
 
-Requires sibling checkouts of `mbse-methodology`, `sysml-domain-libraries`, and a Spec42 executable:
+Requires a Spec42 executable with its managed method and domain libraries installed:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\validate.ps1
 ```
 
-Environment overrides are supported through `SPEC42_EXE`, `ELAN8_METHOD_LIBRARY_ROOT`, and `SYSML_DOMAIN_LIBRARIES_ROOT`.
+An executable override is supported through `SPEC42_EXE`. No project-specific method or domain library configuration is required.
 
 ## Scope boundary
 
