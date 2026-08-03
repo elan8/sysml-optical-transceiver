@@ -15,6 +15,7 @@ package Elan8 {
     item def ContinuousWaveOpticalSignal :> OpticalSignal;
     item def ModulatedOpticalSignal :> OpticalSignal;
     item def DigitalData;
+    item def ModulatorDriveSignal;
     item def ManagementCommand;
     item def ManagementStatus;
 
@@ -28,6 +29,10 @@ package Elan8 {
 
     port def DigitalDataPort {
       out item data : DigitalData;
+    }
+
+    port def ModulatorDrivePort {
+      out item drive : ModulatorDriveSignal;
     }
 
     port def ManagementPort {

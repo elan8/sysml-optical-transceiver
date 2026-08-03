@@ -6,6 +6,7 @@ package OpticalTransceiverReferenceModel {
   private import TransceiverContext::*;
   private import StakeholdersAndNeeds::*;
   private import BoundaryRequirements::*;
+  private import TransmitRequirements::*;
   private import Behavior::*;
   private import Architecture::*;
   private import Analysis::*;

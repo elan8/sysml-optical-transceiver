@@ -5,7 +5,6 @@ package TransceiverContext {
     are intentionally deferred.
   */
 
-  private import ScalarValues::*;
   private import ProjectLibrary::*;
   private import Elan8::Method::Core::*;
   private import Elan8::Electronics::Interconnection::PowerRailPort;
@@ -36,14 +35,6 @@ package TransceiverContext {
   }
 
   part def OpticalTransceiverModule {
-    attribute acceptsExternalOpticalCarrier : Boolean;
-    attribute acceptsElectricalTransmitData : Boolean;
-    attribute emitsModulatedOpticalSignal : Boolean;
-    attribute acceptsReceivedOpticalSignal : Boolean;
-    attribute emitsReceivedElectricalData : Boolean;
-    attribute acceptsExternalPower : Boolean;
-    attribute supportsBidirectionalManagement : Boolean;
-
     port opticalCarrierInput : ~OpticalCarrierPort;
     port electricalTxDataInput : ~DigitalDataPort;
     port opticalTxOutput : OpticalDataPort;
