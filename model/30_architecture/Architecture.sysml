@@ -84,13 +84,15 @@ package Architecture {
     bind electricalTxDataInput = transmitter.electricalDataInput;
     bind opticalCarrierInput = transmitter.opticalCarrierInput;
     bind transmitter.modulatedOpticalOutput = opticalTxOutput;
+
+    doc /*
+      EI-002 realizes the transmit path. The inherited receive, power, and
+      management boundary features remain part of the system contract, while
+      their internal realization is deferred to later engineering increments.
+    */
   }
 
-  part transceiverSystem : TransmitterFirstOpticalTransceiver {
-    attribute :>> acceptsExternalOpticalCarrier = true;
-    attribute :>> acceptsElectricalTransmitData = true;
-    attribute :>> emitsModulatedOpticalSignal = true;
-  }
+  part transceiverSystem : TransmitterFirstOpticalTransceiver;
 
   satisfy transmitConversionSpecification by transceiverSystem;
 }
