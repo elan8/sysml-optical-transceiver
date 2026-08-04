@@ -1,10 +1,13 @@
 package ProjectViews {
-  doc /* Focused EI-001 and EI-002 views over the authoritative model graph. */
+  doc /* Focused Engineering Increment views over the authoritative model graph. */
 
   private import Views::*;
   private import TransceiverContext::*;
   private import Behavior::*;
   private import Architecture::*;
+  private import TransmitRequirements::*;
+  private import Analysis::*;
+  private import Verification::*;
   private import Elan8::Method::Viewpoints::*;
 
   view transceiverContextView : InterconnectionView {
@@ -31,5 +34,13 @@ package ProjectViews {
     expose transceiverSystem.transmitter.transmitElectronics;
     expose transceiverSystem.transmitter.modulator;
     expose transceiverSystem.transmitter.outputCoupler;
+  }
+
+  view transmitPowerBudgetView : GeneralView {
+    satisfy TraceabilityViewpoint;
+    expose minimumTransmitOutputPower;
+    expose transceiverSystem;
+    expose nominalTransmitPowerBudget;
+    expose nominalOpticalPowerBudgetVerification;
   }
 }

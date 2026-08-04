@@ -7,6 +7,15 @@ package Elan8 {
     */
 
     private import ISQ::*;
+    private import ScalarValues::Real;
+
+    attribute def OpticalPowerLevelDbm :> Real {
+      doc /* Optical power level expressed in dBm, referenced to 1 mW. */
+    }
+
+    attribute def OpticalLossDb :> Real {
+      doc /* Positive optical insertion loss or power margin expressed in dB. */
+    }
 
     item def OpticalSignal {
       attribute wavelength : LengthValue;

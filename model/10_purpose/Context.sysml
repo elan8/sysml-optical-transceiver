@@ -35,6 +35,8 @@ package TransceiverContext {
   }
 
   part def OpticalTransceiverModule {
+    attribute opticalTxOutputPowerDbm : OpticalPowerLevelDbm;
+
     port opticalCarrierInput : ~OpticalCarrierPort;
     port electricalTxDataInput : ~DigitalDataPort;
     port opticalTxOutput : OpticalDataPort;

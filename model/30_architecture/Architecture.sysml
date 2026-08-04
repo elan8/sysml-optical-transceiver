@@ -22,6 +22,8 @@ package Architecture {
     @EngineeringConcern { concern = architecture; }
     @AbstractionLevel { level = logical; }
 
+    attribute insertionLossDb : OpticalLossDb;
+
     port carrierInput : ~OpticalCarrierPort;
     port driveInput : ~ModulatorDrivePort;
     port modulatedOutput : OpticalDataPort;
@@ -32,6 +34,8 @@ package Architecture {
   part def OutputFibreCoupler {
     @EngineeringConcern { concern = architecture; }
     @AbstractionLevel { level = logical; }
+
+    attribute insertionLossDb : OpticalLossDb;
 
     port picInput : ~OpticalDataPort;
     port fibreOutput : OpticalDataPort;
@@ -53,13 +57,19 @@ package Architecture {
       valid = true;
     }
 
+    attribute internalRoutingLossDb : OpticalLossDb = 1.0;
+
     port electricalDataInput : ~DigitalDataPort;
     port opticalCarrierInput : ~OpticalCarrierPort;
     port modulatedOpticalOutput : OpticalDataPort;
 
     part transmitElectronics : TransmitElectronics;
-    part modulator : MachZehnderModulator;
-    part outputCoupler : OutputFibreCoupler;
+    part modulator : MachZehnderModulator {
+      attribute :>> insertionLossDb = 4.5;
+    }
+    part outputCoupler : OutputFibreCoupler {
+      attribute :>> insertionLossDb = 2.0;
+    }
 
     bind electricalDataInput = transmitElectronics.txDataInput;
     bind opticalCarrierInput = modulator.carrierInput;
@@ -79,6 +89,8 @@ package Architecture {
     @EngineeringConcern { concern = architecture; }
     @AbstractionLevel { level = system; }
 
+    attribute :>> opticalTxOutputPowerDbm = -4.5;
+
     part transmitter : OpticalTransmitter;
 
     bind electricalTxDataInput = transmitter.electricalDataInput;
@@ -95,4 +107,5 @@ package Architecture {
   part transceiverSystem : TransmitterFirstOpticalTransceiver;
 
   satisfy transmitConversionSpecification by transceiverSystem;
+  satisfy minimumTransmitOutputPower by transceiverSystem.opticalTxOutputPowerDbm;
 }

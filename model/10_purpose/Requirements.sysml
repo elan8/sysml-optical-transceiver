@@ -136,10 +136,11 @@ package BoundaryRequirements {
 }
 
 package TransmitRequirements {
-  doc /* EI-002 behavioral contract for the transmitter-first vertical slice. */
+  doc /* Transmitter behavioral and quantitative contracts. */
 
   private import TransceiverContext::*;
   private import StakeholdersAndNeeds::*;
+  private import ProjectLibrary::*;
   private import Elan8::Method::Core::*;
   private import Elan8::Method::Metadata::*;
 
@@ -155,8 +156,31 @@ package TransmitRequirements {
     */
   }
 
+  requirement minimumTransmitOutputPower {
+    subject opticalTxOutputPowerDbm : OpticalPowerLevelDbm;
+    attribute minimumOutputPowerDbm : OpticalPowerLevelDbm = -6.0;
+
+    @RequirementRole { role = performance; }
+    @RequirementIdentity { requirementId = "SYS-TX-002"; }
+
+    require constraint {
+      opticalTxOutputPowerDbm >= minimumOutputPowerDbm
+    }
+
+    doc /*
+      The nominal optical power at the module transmit-fibre boundary shall be
+      at least -6 dBm. EI-003 evaluates this requirement for the selected
+      transmitter architecture and its declared loss assumptions.
+    */
+  }
+
   dependency transmitNeedRefinement
     from transmitConversionSpecification to transferDigitalData {
+    @Refinement;
+  }
+
+  dependency outputPowerSupportsTransmitNeed
+    from minimumTransmitOutputPower to transferDigitalData {
     @Refinement;
   }
 }
