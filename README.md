@@ -1,8 +1,8 @@
 # SysML Optical Transceiver
 
-![From a SysML v2 transceiver model to an optical AI-datacenter fabric](docs/images/optical-transceiver-hero.png)
+![From a SysML v2 transceiver model to an optical AI-datacenter fabric](docs/images/optical-transceiver.png)
 
-*Project ambition: a complete optical-transceiver golden thread from system model to implementation evidence and application context. The current baseline remains deliberately transmitter-first.*
+_Project ambition: a complete optical-transceiver golden thread from system model to implementation evidence and application context. The current baseline remains deliberately transmitter-first._
 
 A SysML v2 reference project for a silicon-photonics optical transceiver, developed with the Elan8 Method.
 
@@ -20,18 +20,19 @@ The model now adds one transmitter-first vertical slice to the EI-001 boundary: 
 
 ## Repository map
 
-| Path | Purpose |
-| --- | --- |
-| `model/00_project/` | Elan8 Method tailoring |
-| `model/10_purpose/` | Stakeholders, needs, requirements, and operational context |
-| `model/20_behavior/` | Transmit scenario and later receive/control behavior |
-| `model/30_architecture/` | Selected system usage and later architecture |
-| `model/40_analysis/` | Executable analyses, starting in EI-003 |
-| `model/50_verification/` | Verification intent and evidence links |
-| `model/60_views/` | Views over the authoritative model graph |
-| `model/90_library/` | Project-local import hub |
-| `library/photonics/` | Experimental reusable photonics definitions |
-| `PROJECT_PLAN.md` | Tracked delivery plan and baseline strategy |
+| Path                             | Purpose                                                                   |
+| -------------------------------- | ------------------------------------------------------------------------- |
+| `model/00_project/`              | Elan8 Method tailoring                                                    |
+| `model/10_purpose/`              | Stakeholders, needs, requirements, and operational context                |
+| `model/20_behavior/`             | Transmit scenario and later receive/control behavior                      |
+| `model/30_architecture/`         | Selected system usage and later architecture                              |
+| `model/40_analysis/`             | Executable analyses, starting in EI-003                                   |
+| `model/50_verification/`         | Verification intent and evidence links                                    |
+| `model/60_views/`                | Views over the authoritative model graph                                  |
+| `model/90_library/`              | Project-local import hub                                                  |
+| `library/photonics/`             | Experimental reusable photonics definitions                               |
+| `PROJECT_PLAN.md`                | Tracked delivery plan and baseline strategy                               |
+| `docs/REFERENCE_ARCHITECTURE.md` | Industry-generic transceiver reference architecture, mapped to this model |
 
 ## Validation
 

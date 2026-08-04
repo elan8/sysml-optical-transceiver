@@ -1,0 +1,120 @@
+<svg viewBox="0 0 1680 980" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#f5a623"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#4fc3f7"/>
+    </marker>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#5fe0c8"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8890a0"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1680" height="980" fill="#060a18"/>
+
+  <text x="840" y="40" text-anchor="middle" fill="#e6e9f0" font-size="22" font-weight="600">Optical Transceiver — External Laser Source (ELSFP / CPO-style)</text>
+
+  <!-- External Laser Source, outside the module -->
+  <rect x="40" y="360" width="230" height="150" rx="14" fill="#0f2a28" stroke="#5fe0c8" stroke-width="2.5"/>
+  <text x="155" y="415" text-anchor="middle" fill="#eafff9" font-size="19" font-weight="600">External CW</text>
+  <text x="155" y="440" text-anchor="middle" fill="#eafff9" font-size="19" font-weight="600">Laser Source</text>
+  <text x="155" y="470" text-anchor="middle" fill="#9fe8d8" font-size="14">(ELS / ELSFP)</text>
+  <text x="155" y="492" text-anchor="middle" fill="#7fb8ab" font-size="12">not part of the transceiver module</text>
+
+  <!-- Fiber link from ELS to module -->
+  <line x1="270" y1="435" x2="400" y2="435" stroke="#5fe0c8" stroke-width="3" marker-end="url(#arrowTeal)"/>
+  <text x="335" y="420" text-anchor="middle" fill="#9fe8d8" font-size="12">optical fibre</text>
+
+  <!-- Module boundary -->
+  <rect x="400" y="70" width="1240" height="850" rx="22" fill="none" stroke="#8890a0" stroke-width="3"/>
+  <text x="1020" y="105" text-anchor="middle" fill="#e6e9f0" font-size="19" font-weight="600">Optical Transceiver Module</text>
+  <circle cx="400" cy="435" r="6" fill="#5fe0c8"/>
+  <text x="416" y="440" fill="#9fe8d8" font-size="13">Carrier In</text>
+
+  <!-- Tx row (solid, modeled today) -->
+  <text x="820" y="150" text-anchor="middle" fill="#f5a623" font-size="14" font-weight="600">Transmit path — modelled (EI-002)</text>
+
+  <text x="425" y="215" fill="#f5a623" font-size="15" text-anchor="start">Tx Data</text>
+  <line x1="425" y1="225" x2="470" y2="225" stroke="#f5a623" stroke-width="3" marker-end="url(#arrowOrange)"/>
+
+  <rect x="470" y="175" width="150" height="100" rx="10" fill="#2a1f0a" stroke="#f5a623" stroke-width="2"/>
+  <text x="545" y="231" text-anchor="middle" fill="#ffe3b0" font-size="17" font-weight="600">CDR</text>
+
+  <line x1="620" y1="225" x2="670" y2="225" stroke="#f5a623" stroke-width="3" marker-end="url(#arrowOrange)"/>
+
+  <rect x="670" y="175" width="190" height="100" rx="10" fill="#2a1f0a" stroke="#f5a623" stroke-width="2"/>
+  <text x="765" y="220" text-anchor="middle" fill="#ffe3b0" font-size="16" font-weight="600">Modulator</text>
+  <text x="765" y="242" text-anchor="middle" fill="#ffe3b0" font-size="16" font-weight="600">Driver</text>
+
+  <line x1="860" y1="225" x2="920" y2="225" stroke="#f5a623" stroke-width="3" marker-end="url(#arrowOrange)"/>
+
+  <rect x="920" y="175" width="200" height="100" rx="10" fill="#2a1f0a" stroke="#f5a623" stroke-width="2"/>
+  <text x="1020" y="220" text-anchor="middle" fill="#ffe3b0" font-size="16" font-weight="600">Modulator</text>
+  <text x="1020" y="242" text-anchor="middle" fill="#ffe3b0" font-size="13">(Mach-Zehnder PIC)</text>
+
+  <line x1="1120" y1="225" x2="1180" y2="225" stroke="#f5a623" stroke-width="3" marker-end="url(#arrowOrange)"/>
+  <text x="1195" y="215" fill="#f5a623" font-size="15">Output</text>
+  <text x="1195" y="233" fill="#f5a623" font-size="15">Fibre Coupler</text>
+
+  <rect x="1180" y="175" width="180" height="100" rx="10" fill="#2a1f0a" stroke="#f5a623" stroke-width="2" opacity="0"/>
+  <line x1="1360" y1="225" x2="1610" y2="225" stroke="#f5a623" stroke-width="3" marker-end="url(#arrowOrange)"/>
+  <text x="1580" y="210" text-anchor="end" fill="#f5a623" font-size="15">Tx interface</text>
+
+  <!-- carrier routed up into modulator -->
+  <line x1="400" y1="435" x2="1020" y2="435" stroke="#5fe0c8" stroke-width="2.5" stroke-dasharray="2,0"/>
+  <line x1="1020" y1="435" x2="1020" y2="280" stroke="#5fe0c8" stroke-width="2.5" marker-end="url(#arrowTeal)"/>
+
+  <!-- MCU -->
+  <rect x="860" y="380" width="200" height="110" rx="10" fill="#111827" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="960" y="440" text-anchor="middle" fill="#f2f4f8" font-size="18" font-weight="600">MCU</text>
+  <text x="960" y="460" text-anchor="middle" fill="#9aa4b2" font-size="12">DDM / monitoring</text>
+
+  <circle cx="400" cy="330" r="6" fill="#cbd5e1"/>
+  <line x1="406" y1="330" x2="860" y2="330" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="1,0"/>
+  <line x1="860" y1="330" x2="860" y2="380" stroke="#cbd5e1" stroke-width="2" marker-end="url(#arrowGray)"/>
+  <line x1="900" y1="380" x2="900" y2="330" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="900" y1="330" x2="416" y2="330" stroke="#cbd5e1" stroke-width="2" marker-end="url(#arrowGray)"/>
+  <text x="425" y="318" fill="#cbd5e1" font-size="13">I2C / host management</text>
+
+  <!-- dashed control lines MCU -> Tx blocks -->
+  <line x1="900" y1="380" x2="765" y2="280" stroke="#8890a0" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowGray)"/>
+  <line x1="960" y1="380" x2="960" y2="280" stroke="#8890a0" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowGray)" opacity="0"/>
+  <line x1="940" y1="380" x2="545" y2="280" stroke="#8890a0" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowGray)"/>
+
+  <!-- dashed control lines MCU -> Rx blocks (deferred) -->
+  <line x1="900" y1="490" x2="765" y2="600" stroke="#5a6272" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowGray)"/>
+  <line x1="940" y1="490" x2="545" y2="600" stroke="#5a6272" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowGray)"/>
+  <line x1="1000" y1="490" x2="1020" y2="600" stroke="#5a6272" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowGray)"/>
+
+  <!-- Rx row (dashed, deferred) -->
+  <text x="820" y="595" text-anchor="middle" fill="#8890a0" font-size="14" font-style="italic">Receive path — deferred to EI-007 (not yet in the model)</text>
+
+  <rect x="470" y="620" width="150" height="100" rx="10" fill="none" stroke="#5a6272" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="545" y="676" text-anchor="middle" fill="#a9b0bd" font-size="17" font-weight="600">CDR</text>
+
+  <rect x="670" y="620" width="190" height="100" rx="10" fill="none" stroke="#5a6272" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="765" y="676" text-anchor="middle" fill="#a9b0bd" font-size="16" font-weight="600">TIA / LA</text>
+
+  <rect x="920" y="620" width="200" height="100" rx="10" fill="none" stroke="#5a6272" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="1020" y="676" text-anchor="middle" fill="#a9b0bd" font-size="17" font-weight="600">ROSA</text>
+
+  <line x1="1610" y1="670" x2="1360" y2="670" stroke="#5a6272" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowGray)"/>
+  <text x="1580" y="655" text-anchor="end" fill="#a9b0bd" font-size="15">Rx interface</text>
+
+  <line x1="920" y1="670" x2="860" y2="670" stroke="#5a6272" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowGray)"/>
+  <line x1="670" y1="670" x2="620" y2="670" stroke="#5a6272" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowGray)"/>
+  <line x1="470" y1="670" x2="425" y2="670" stroke="#5a6272" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowGray)"/>
+  <text x="425" y="655" fill="#a9b0bd" font-size="15">Rx Data</text>
+
+  <!-- footnote -->
+  <text x="840" y="945" text-anchor="middle" fill="#8890a0" font-size="13">
+    Reflects Architecture::ASM-001 — the continuous-wave laser sits outside the module boundary (ELSFP / CPO-style remote light source).
+  </text>
+  <text x="840" y="967" text-anchor="middle" fill="#8890a0" font-size="13">
+    Solid orange = realized in the SysML model today (EI-002, transmit-only). Dashed grey = generic transceiver blocks not yet in scope.
+  </text>
+</svg>
