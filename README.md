@@ -1,5 +1,9 @@
 # SysML Optical Transceiver
 
+![From a SysML v2 transceiver model to an optical AI-datacenter fabric](docs/images/optical-transceiver-hero.png)
+
+*Project ambition: a complete optical-transceiver golden thread from system model to implementation evidence and application context. The current baseline remains deliberately transmitter-first.*
+
 A SysML v2 reference project for a silicon-photonics optical transceiver, developed with the Elan8 Method.
 
 The initial scope is deliberately transmitter-first. The project begins with the module boundary and external interfaces, then develops one electrical-to-optical golden thread through requirements, architecture, analysis, verification, PIC projection, and generated layout evidence.
