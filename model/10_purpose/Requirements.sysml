@@ -69,6 +69,7 @@ package BoundaryRequirements {
   private import StakeholdersAndNeeds::*;
   private import Elan8::Method::Core::*;
   private import Elan8::Method::Metadata::*;
+  private import ModelingMetadata::*; // @Refinement
 
   requirement transceiverBoundarySpecification {
     subject transceiver : OpticalTransceiverModule;
@@ -142,6 +143,7 @@ package TransmitRequirements {
   private import StakeholdersAndNeeds::*;
   private import Elan8::Method::Core::*;
   private import Elan8::Method::Metadata::*;
+  private import ModelingMetadata::*; // @Refinement
 
   requirement transmitConversionSpecification {
     subject transceiver : OpticalTransceiverModule;

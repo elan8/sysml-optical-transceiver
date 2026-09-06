@@ -2,6 +2,7 @@ package ProjectViews {
   doc /* Focused EI-001 and EI-002 views over the authoritative model graph. */
 
   private import Views::*;
+  private import StandardViewDefinitions::*; // InterconnectionView, ActionFlowView
   private import TransceiverContext::*;
   private import Behavior::*;
   private import Architecture::*;
